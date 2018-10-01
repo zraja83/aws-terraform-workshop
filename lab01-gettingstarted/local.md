@@ -12,10 +12,10 @@ cd terraform-aws-mvd/
 ```
 export AWS_ACCESS_KEY_ID=<access-key-id>
 export AWS_SECRET_ACCESS_KEY=<secret-access-key>
-export AWS_DEFAULT_REGION="us-west-2"
 ```
 - Set Terraform variables as Environment variables prefixed with `TF_VAR_` (Alternatively these can be entered in a `.tfvars` file).
 ```
+export TF_VAR_region="us-west-2"
 export TF_VAR_identity="demo-wallaby"
 export TF_VAR_ingress_cidr="$(curl -s http://whatismyip.akamai.com)/32"
 ```

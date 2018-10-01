@@ -1,9 +1,5 @@
-terraform {
-  required_version = ">= 0.11.0"
-}
-
 provider "aws" {
-  version = "~> 1.5"
+  region = "${var.region}"
 }
 
 module "server" {
