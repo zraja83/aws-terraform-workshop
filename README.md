@@ -11,9 +11,10 @@ This lab demonstrates how to connect Terraform Enterprise to a source code manag
 
 **Tasks:**
 - Task 1: Connect GitHub to TFE and Fork a GitHub Repo
-- Task 2: Queue a Plan
-- Task 3: Edit Code on GitHub to Use Variables instead of file
-- Task 4: Confirm and Apply the Plan
+- Task 2: Configure Variables
+- Task 3: Queue a Plan
+- Task 4: Edit Code on GitHub to Use Variables instead of file
+- Task 5: Confirm and Apply the Plan
 
 ### Terraform Enterprise
 
@@ -31,7 +32,7 @@ Populating variables to Terraform Enterprise will give Terraform Enterprise our 
 
 Connecting Terraform Enterprise to GitHub will give us a continuous integration style of workflow for managing infrastructure.
 
-#### Step 1.1.1: Fork the repo
+#### Step 1.1: Fork the repo
 
 Visit this GitHub repository and fork it so you have a copy in your own GitHub account:
 
@@ -49,7 +50,7 @@ We will work with the `after-tfe` branch. If you choose to work locally, check o
 $ git checkout -t origin/after-tfe
 ```
 
-#### Step 1.1.2: Connect GitHub to TFE
+#### Step 1.2: Connect GitHub to TFE
 
 Now go to https://app.terraform.io
 
@@ -99,7 +100,7 @@ Back at Terraform Enterprise, you’ll see that it’s connected.
 
 **NOTE:** For full capabilities, you can add your private SSH key which will be used to clone repositories and submodules. This is especially important if you use submodules and those submodules are in private repositories. That isn’t the case for us so I’ll leave that up to you.
 
-### Step 1.1.3: Create a workspace in TFE
+### Step 1.3: Create a workspace in TFE
 
 Finally, we’re ready to fully create a Terraform Enterprise workspace. Go to https://app.terraform.io and click the "New Workspace" button at the top right.
 
@@ -117,7 +118,7 @@ Click the "More Options" link and scroll down to "VCS Branch." Type `after-tfe` 
 
 You’ll see a screen showing that a Terraform Enterprise workspace is connected to your GitHub repository. But we still need to provide Terraform with our secret key, access key, and other variables defined in the Terraform code as variables.
 
-### Step 1.1.4: Configure variables
+## Task 2: Configure variables
 
 Go to the "Variables" tab.  On the variables page, you'll see there are two kinds of variables:
 
@@ -126,38 +127,7 @@ Go to the "Variables" tab.  On the variables page, you'll see there are two kind
 
 In the top "Terraform Variables" section, click "Edit" and add keys and values for all the variables in the project's `variables.tf` file. The only one you'll need initially is `identity` which is your unique animal name.
 
-## Task 2: Create `public_key` and `private_key` Variables in Terraform Enterprise
-
-### Step 5.2.1: Configure SSH keys
-
-Terraform Enterprise runs in an environment with limited privileges. It does not have access to your instance's SSH keys that were read from local storage when this code was originally written.
-
-Start by copying the contents of the instance's public and private SSH keys to Terraform Enterprise as Terraform variables.
-
-**NOTE**: These keys are temporary and are used only for this class. However, you should be careful about ever sending private keys to any website, API, individual, or machine. You could avoid this scenario by building the instance in Packer or by other means.
-
-Here is one way to display them in your terminal in a way that can be copied to your local clipboard.
-
-Use `cat` these in the terminal, copy them to the clipboard, and create variables on Terraform Enterprise named `public_key` and `private_key`. Be sure to click "Add" after entering each key and value.
-
-```bash
-$ cat ~/.ssh/id_rsa.pub
-
-ssh-rsa AAAA...
-```
-
-You can mark values as sensitive, which makes them "write-only" (they will not be displayed in the UI after they are saved). Be sure to do that at least with your private key.
-
-```bash
-$ cat ~/.ssh/id_rsa
-
------BEGIN RSA PRIVATE KEY-----
-MII...
-```
-
-You MUST hit "Save" (or "Save and Plan"). Variables will not be saved otherwise.
-
-### Step 5.2.2: Enter AWS Credentials
+### Step 2.1: Enter AWS Credentials
 
 There is also a section for environment variables. We'll use these to store AWS credentials.
 
@@ -175,7 +145,7 @@ Click the "Save" button.
 
 For this task, you'll queue a `terraform plan`.
 
-### Step 5.3.1: Queue a plan and read the output
+### Step 3.1: Queue a plan and read the output
 
 Click the "Queue Plan" button at the top right.
 
@@ -191,7 +161,7 @@ Edit code on GitHub to upgrade the AWS provider version to `>= 1.20.0`.
 
 You'll make a pull request with these changes and observe the status of the pull request on GitHub.
 
-### Step 5.4.1
+### Step 4.1
 
 On GitHub, find the "Branch" pulldown and switch to the `after-tfe` branch.
 
@@ -224,7 +194,7 @@ Merge the pull request to the `after-tfe` branch with the big green "Merge pull 
 
 ## Task 5: Confirm and Apply the Plan
 
-### Step 5.5.1: Confirm and `apply`
+### Step 5.1: Confirm and `apply`
 
 Back at Terraform Enterprise, find the "Current Run" tab. Click it and you’ll see the merge commit has triggered a plan and it needs confirmation.
 
@@ -244,7 +214,7 @@ Examine the output of `apply` and find the IP address of the new instance. The o
 
 To clean up, destroy the infrastructure you've just created.
 
-### Step 5.6.1: Configure CONFIRM_DESTROY variable
+### Step 6.1: Configure CONFIRM_DESTROY variable
 
 Go to the "Settings" tab in Terraform Enterprise and scroll to the bottom. Note the instructions under "Workspace Delete." We want to destroy the infrastructure but not necessarily the workspace.
 
@@ -256,7 +226,7 @@ Go to the "Variables" tab and do that.
 
 Click "Add" and "Save".
 
-### Step 5.6.2: Queue destroy plan
+### Step 6.2: Queue destroy plan
 
 It's sometimes necessary to queue a normal plan and then queue the destroy plan.
 
