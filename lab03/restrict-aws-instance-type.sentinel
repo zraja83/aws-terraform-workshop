@@ -11,7 +11,7 @@ get_aws_instances = func() {
 
 # Allowed Types
 allowed_types = [
-  "t2.small"
+  "t2.small",
 ]
 
 aws_instances = get_aws_instances()
@@ -24,7 +24,7 @@ instance_type_allowed = rule {
       }
     }
 }
-  
+
 # Main rule that requires other rules to be true
 main = rule {
   (instance_type_allowed) else true
