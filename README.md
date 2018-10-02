@@ -16,4 +16,4 @@ For each Lab, change your working directory to the folder for that challenge.
 ---
 #### Lab 01: [Getting Started](lab01/README.md)
 #### Lab 02: [Connecting to VCS](lab02/README.md)
-#### Lab 03: [Adding Sentinel (pending)](lab02/README.md)
+#### Lab 03: [Adding Sentinel (pending)](lab03/README.md)
