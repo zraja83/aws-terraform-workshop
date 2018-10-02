@@ -21,7 +21,7 @@ In this Lab we will continue to use your Organization we setup in lab02. Using S
 - Click on Settings at the top
 - Click on "Sentinel policies" from the Organization Settings menu on the left
 - Click "Add New Policy"
-  - Set "POLICY NAME" to
+  - Set "POLICY NAME" to `restrict-aws-instance-type`
   - Set "ENFORCEMENT MODE" to soft-mandatory (can override)
   - In "POLICY CODE", add the contents of [restrict-aws-instance-type.sentinel](restrict-aws-instance-type.sentinel).
 
