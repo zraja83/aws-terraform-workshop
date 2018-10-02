@@ -174,7 +174,7 @@ Edit the [main.tf](main.tf) file in GitHub repo to add another instance of the `
 ### Step 5.1
 
 - Navigate to `main.tf`. Find the pencil icon. Click to edit this file directly in the browser.
-  - Note: Although we are using the GitHub UI to edit this file, you may choose to edit `main.tf` locally and use the Git CLI to push to a new branch. 
+  - Note: Although we are using the GitHub UI to edit this file, you may choose to edit `main.tf` locally and use the Git CLI to push to a new branch.
 
 ![TFE](images/tfe-basics/lab02-09.png "TFE")
 
@@ -216,17 +216,11 @@ output "public_dns_us_east_2" {
 
 - Back at Terraform Enterprise, find the "Current Run" tab. Click it and you’ll see the merge commit has triggered a plan and it needs confirmation.
 
-- Scroll to the bottom of the run and confirm the `plan`. At the bottom of the page you’ll see a place to comment (optional) and click "Confirm & Apply."
+- Scroll to the bottom of the run and confirm the `plan`. At the bottom of the page you’ll see a place to comment (optional) and click **"Confirm & Apply."** This will queue a `terraform apply`.
 
-![TFE](images/tfe-basics/14.png "TFE")
+Examine the output of `apply` and find the DNS address of the new instance. The output looks like what you’ve previously seen in the terminal. Copy the `public_dns_us_east_2` address and paste it into your browser. You'll see the running web application.
 
-- This will queue a `terraform apply`.
-
-Examine the output of `apply` and find the IP address of the new instance. The output looks like what you’ve previously seen in the terminal. Copy the `public_ip` address and paste it into your browser. You'll see the running web application.
-
-![TFE](images/tfe-basics/15.png "TFE")
-
-
+![TFE](images/tfe-basics/lab02-15.png "TFE")
 
 ## Task 6: Destroy
 
