@@ -4,6 +4,8 @@ Duration: 45 minutes
 
 This lab demonstrates how to connect Terraform Enterprise to a source code management system (GitHub) and create a Workspace that can apply the Terraform configuration when changes are committed. This is called a [VCS-driven run workflow](https://www.terraform.io/docs/enterprise/run/ui.html).
 
+To perform this Lab you will create a new account in [Terraform Enterprise trial account](https://app.terraform.io/account/new), and create your own Organization within Terraform Enterprise.
+
 This lab is for use with a student's own AWS credentials and is intended to run on Terraform Enterprise, however, this lab can also be run locally, see [local.md](local.md) for steps.
 
 The Terraform configuration in this directory will provision one or more AWS EC2 instances and deploy an example Go application. To install the application, Terraform will generate a RSA SSH public and private key pair by Terraform using the Terraform [tls_private_key](https://www.terraform.io/docs/providers/tls/r/private_key.html) provider.
@@ -51,7 +53,7 @@ $ git clone https://github.com/$USER/aws-terraform-workshop.git
 
 #### Step 1.2: Connect GitHub to TFE
 
-Please go to [https://app.terraform.io](https://app.terraform.io) and create a new Organization. You’ll see an empty page where your workplaces will be.
+Please go to [https://app.terraform.io](https://app.terraform.io) and create a new Organization, or Navigate to an Organization you created earlier. The URL format is: `https://app.terraform.io/app/<your-organization-name>`
 
 - Go to [GitHub](https://github.com/settings/profile) and find your Settings page, accessed from the menu on your avatar.
 
