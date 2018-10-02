@@ -11,8 +11,6 @@ Below is a series of Lab to help attendees learn about Terraform and how to use 
 
 ### Labs
 
-For each Lab, change your working directory to the folder for that challenge.
-
 ---
 #### Lab 01: [Getting Started](lab01/README.md)
 #### Lab 02: [Connecting to VCS](lab02/README.md)
