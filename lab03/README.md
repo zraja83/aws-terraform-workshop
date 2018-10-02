@@ -1,5 +1,7 @@
 ### Lab03 - Sentinel Policy as Code
 
+Duration: 10 minutes
+
 In this Lab we will continue to use your Organization we setup in lab02. Using Sentinel policy-as-code framework we will restrict the AWS EC2 instance type being deployed.
 - The Sentinel policy code is included in lab03 directory: [restrict-aws-instance-type.sentinel](restrict-aws-instance-type.sentinel).
 - You can view [example Sentinel policies on AWS](https://github.com/hashicorp/terraform-guides/tree/master/governance/aws) in terraform-guides repo.
@@ -34,8 +36,8 @@ In this Lab we will continue to use your Organization we setup in lab02. Using S
 ### Task 3: View Sentinel policy failure and Override
 
 **Steps:**
-- The Run should show a Policy failure. View the Allowed EC2 instance types in Sentinel Policy code. You will see it is restricted to `t2.small`.
-- Our [main.tf](../lab02/server/main.tf) is using an instance type of `t2.medium` which is causing the Policy to fail.
+- The Run should show a Policy failure. View the Allowed EC2 instance types in Sentinel Policy code. You will see `instance_type` is restricted to `t2.small`.
+- Our [main.tf](../lab02/server/main.tf) is using an `instance_type` of `t2.medium` which is causing the Policy to fail.
 - Since you are the owner of the Organization, you are able to Override this Policy failure.
   - Click on "Override" button Optionally adding some comments
   - Click on "Confirm and Apply" button to allow the Run to complete.
