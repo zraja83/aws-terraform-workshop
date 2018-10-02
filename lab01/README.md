@@ -25,9 +25,9 @@ The Terraform configuration in this directory will provision one or more AWS EC2
 
 ### Task 1: Create a workspace in TFE
 
-We will use the **aws-terraform-workshop** Organization in Terraform Enterprise. Please go to https://app.terraform.io and ensure you are in this organization, then click the "New Workspace" button at the top right.
+- We will use the **aws-terraform-workshop** Organization in Terraform Enterprise. Please go to https://app.terraform.io and ensure you are in this organization, then click the "New Workspace" button at the top right.
 
-Give it a name such as "training-lab01".
+- Give it a Unique name such as "<yourname>-training-lab01".
 
 - Choose GitHub as VCS connection.
 - Click the "Repository" field and you’ll see a list of available repositories in an auto-complete menu. Find the `aws-terraform-workshop` repo. If yours isn’t here, refresh the page.
