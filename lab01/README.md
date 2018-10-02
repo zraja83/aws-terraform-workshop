@@ -35,7 +35,7 @@ The Terraform configuration in this directory will provision one or more AWS EC2
 ![TFE](images/tfe-basics/lab01-06.png "TFE")
 
 - Click the "More Options" link
-  - **TERRAFORM WORKING DIRECTORY:** By default Terraform will use repository root directory. In this case we will specify `lab01-gettingstarted`.
+  - **TERRAFORM WORKING DIRECTORY:** By default Terraform will use repository root directory. In this case we will specify `lab01`.
 
   - **VCS BRANCH:** Terraform Enterprise can deploy from any branch. We'll use the default branch; alternatively you can specify `master`.
 
